@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/adotepet.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <title>Adoção</title>
+</head>
+<body style="background-image: url(imgs/fundo.jpg)">
+        <section id="landing__area" class="container__center">
+            <nav class="center__row">
+                <h1 class="logo"> <img src="imgs/logobg.png" alt="Minha imagem" class="imagem"> </h1>
+                <div class="sidebar">
+    <div class="logo_details">
+      <div class="logo_name">DRAPET</div>
+      <i class="bx bx-menu" id="btn"></i>
+    </div>
+
+    <ul class="nav-list">
+
+      <li>
+        <a href="index.html">
+          <i class='bx bx-home-alt'></i>
+          <span class="link_name">Menu</span>
+        </a>
+        <span class="tooltip">Menu</span>
+      </li>
+
+      <li>
+        <a href="loja.html">
+          <i class="bx bx-cart-alt"></i>
+          <span class="link_name">Loja</span>
+        </a>
+        <span class="tooltip">Loja</span>
+      </li>
+
+      <li>
+        <a href="curtidas.html">
+          <!-- <i class="bx bx-pie-chart-alt-2"></i> -->
+          <i class='bx bx-heart'></i>
+          <span class="link_name">Curtidas</span>
+        </a>
+        <span class="tooltip">Curtidas</span>
+      </li>
+
+      <li>
+        <a href="historico.html">
+          <i class='bx bx-history'></i>
+          <span class="link_name">Histórico</span>
+        </a>
+        <span class="tooltip">Histórico</span>
+      </li>
+
+      <li>
+        <a href="comodoar.html">
+          <i class='bx bx-help-circle'></i>
+          <span class="link_name">Quer Nos Ajudar?</span>
+        </a>
+        <span class="tooltip">Quer Nos Ajudar?</span>
+      </li>
+
+      <li>
+        <a href="servicos.html">
+          <i class='bx bx-briefcase'></i>
+          <span class="link_name">Serviços</span>
+        </a>
+        <span class="tooltip">Serviços</span>
+      </li>
+
+      <li>
+        <a href="qmsomos.html">
+          <!-- <i class="bx bx-user"></i> ------- uma pessoa -->
+          <i class='bx bx-group'></i>
+          <span class="link_name">Quem Somos</span>
+        </a>
+        <span class="tooltip">Quem Somos</span>
+      </li>
+
+      <li>
+        <a href="contatos.html">
+          <i class='bx bx-phone'></i>
+          <span class="link_name">Contatos</span>
+        </a>
+        <span class="tooltip">Contatos</span>
+      </li>
+
+      <li>
+        <a href="#">
+          <i class="bx bx-cog"></i>
+          <span class="link_name">Configurações</span>
+        </a>
+        <span class="tooltip">Configurações</span>
+      </li>
+
+      <li class="profile">
+        <div class="profile_details">
+          <img src="imgs/profile.jpg" alt="profile image">
+          <div class="profile_content">
+            <div class="name">Luca Rafael <br> Pimentel Ferreira</div>
+          </div>
+        </div>
+        <i class="bx bx-log-out" id="log_out"></i>
+</li></ul></div>
+            </nav>
+        </section>
+        <br><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+         <div data-aos="flip-left" class="form-box">
+  <h1 style="color: var(--brown)"><strong>Filtro</strong></h1>
+  <br>
+  <form action="/quero-adotar#pets" class="bg-white flex flex-col md:gap-2 mx-auto rounded-lg mb-5 p-5 pt-0" method="get">
+    <div class="flex flex-col md:gap-2 sm:flex-row">
+      <div class="form-field flex-1">
+        <select id="specie" name="specie">
+          <option value>PET'S</option>
+          <option value="dog">Cachorro</option>
+          <option value="cat">Gato</option>
+          <option value="female">Outros</option>
+        </select>
+      </div>
+      <div class="form-field flex-1">
+        <select id="old" name="old">
+          <option value>IDADE</option>
+          <option value="male">Filhote</option>
+          <option value="female">Adulto</option>
+          <option value="female">Indiferente</option>
+        </select>
+      </div>
+      
+      <div class="form-field flex-1">
+        <select id="size" name="size">
+          <option value>PORTE</option>
+          <option value="small">Porte pequeno</option>
+          <option value="medium">Porte médio</option>
+          <option value="big">Porte grande</option>
+        </select>
+      </div>
+    </div>
+   
+ <div class="flex flex-col md:gap-2 sm:flex-row" id="v-location">
+      <div class="form-field flex-1">
+        <select id="state_id" name="state_id" v-model="state_id" v-on:change="loadCities" v-init:state_id="&#39;&#39;">
+          <option :value="null" selected>ESTADO</option>
+          <option value="AC">AC</option>
+          <option value="AL">AL</option>
+          <option value="AM">AM</option>
+          <option value="AP">AP</option>
+          <option value="BA">BA</option>
+          <option value="CE">CE</option>
+          <option value="DF">DF</option>
+          <option value="ES">ES</option>
+          <option value="GO">GO</option>
+          <option value="MA">MA</option>
+          <option value="MG">MG</option>
+          <option value="MS">MS</option>
+          <option value="MT">MT</option>
+          <option value="PA">PA</option>
+          <option value="PB">PB</option>
+          <option value="PE">PE</option>
+          <option value="PI">PI</option>
+          <option value="PR">PR</option>
+          <option value="RJ">RJ</option>
+          <option value="RN">RN</option>
+          <option value="RO">RO</option>
+          <option value="RR">RR</option>
+          <option value="RS">RS</option>
+          <option value="SC">SC</option>
+          <option value="SE">SE</option>
+          <option value="SP">SP</option>
+          <option value="TO">TO</option>
+          
+          </option>
+        </select>
+      </div>
+
+<div class="form-field flex-1">
+        <select id="city_id" name="city_id" v-model="city_id" v-init:city_id="&#39;&#39;">
+          <option :value="null" selected>CIDADE</option>
+          <option v-for="city in cities" v-bind:value="city.id">{{city.name}}</option>
+        </select>
+</div>
+
+        <div class="form-field flex-1">
+        <select id="sex" name="sex">
+          <option value>SEXO</option>
+          <option value="male">Macho</option>
+          <option value="female">Fêmea</option>
+          <option value="female">Indiferente</option>
+        </select>
+      </div>
+</div>
+<div class="form-field flex-1">
+        <button class="primary-button w-full" type="submit"><strong>Buscar</strong></button>
+      </div>
+</form>
+</div>
+
+
+
+
+
+
+
+<br><br><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <footer>
+            <div class="footer__cont center__row">
+                <p>2023 &copyDRAPET</p>
+                <div>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/drapet_23/"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </footer>
+
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+        <script>
+            AOS.init();
+        </script>
+
+        <script src="js/mobile-navbar.js"></script>
+        
+    </body>
+    </html>
